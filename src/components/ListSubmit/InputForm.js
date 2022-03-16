@@ -7,6 +7,7 @@ function InputForm(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredAge, setEnteredAge] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [numIsValid, setNumIsValid] = useState(true)
 
   const enteredUserChangeHandler = (event) => {
     setEnteredUsername(event.target.value);
@@ -19,24 +20,27 @@ function InputForm(props) {
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    // modalShowHandler()
-    if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
+
+    if (enteredUsername.trim().length === 0) {
       setShowModal(true);
       return
     }
     let n = enteredAge.trim();
-    if (n > 100 || n < 0 || isNaN(n) || n === "") {
+    if (n > 100 || n < 0 || isNaN(n) || n.trim() === '') {
       setShowModal(true);
+      setNumIsValid(false)
       return
     }
+
     const itemData = {
       username: enteredUsername,
       age:enteredAge,
     };
     props.onSaveItemData(itemData)
 
-    setEnteredAge(' ');
-    setEnteredUsername(' ');
+    setEnteredAge('');
+    setEnteredUsername('');
+    setNumIsValid(true)
 
     
 
@@ -56,7 +60,7 @@ function InputForm(props) {
           <button type="submit">Add User</button>
         </form>
       </div>
-      {showModal && <ModalPopUp closeModal={setShowModal} />}
+      {showModal && <ModalPopUp closeModal={setShowModal} numIsValid={numIsValid}/>}
     </div>
   );
 }

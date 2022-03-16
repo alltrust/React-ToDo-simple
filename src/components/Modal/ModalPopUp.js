@@ -7,13 +7,12 @@ function ModalPopUp(props) {
     props.closeModal(false)
   }
   
-    
   return (
     <div className="modal">
       <div className="modal-header">
         <h2>Input Invalid</h2>
       </div>
-      <p className="modal-msg"> Please Do no leave empty fields</p>
+      <p className="modal-msg">{!props.numIsValid ? 'select proper number' : "do not leave username field empty" }</p>
       <button onClick={closeModal}>Okay</button>
     </div>
   );
