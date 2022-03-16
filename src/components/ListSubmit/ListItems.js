@@ -1,10 +1,14 @@
+import Item from "../Item";
 import "./ListItems.css";
 
 const ListItems = (props) => {
   return (
     <div>
       {props.items.map((item) => (
-        <div key={item.id} username={item.username} age={item.age}></div>
+        <Item 
+        key={item.id} 
+        username={item.username} 
+        age={item.age} />
       ))}
     </div>
   );

@@ -16,21 +16,27 @@ function InputForm(props) {
     setEnteredAge(event.target.value);
   };
 
+
   const formSubmitHandler = (event) => {
     event.preventDefault();
+    // modalShowHandler()
     if (enteredUsername.trim().length === 0 || enteredAge.trim().length === 0) {
       setShowModal(true);
+      return
     }
     let n = enteredAge.trim();
     if (n > 100 || n < 0 || isNaN(n) || n === "") {
       setShowModal(true);
+      return
     }
-
     const itemData = {
       username: enteredUsername,
-      age:enteredAge
+      age:enteredAge,
     };
     props.onSaveItemData(itemData)
+
+    setEnteredAge('');
+    setEnteredUsername('');
 
     
 

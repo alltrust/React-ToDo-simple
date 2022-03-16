@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import InputForm from './components/ListSubmit/InputForm';
+
 import ListItems from './components/ListSubmit/ListItems';
+import NewItem from './components/ListSubmit/NewItem';
 
 const DUMMY_ITEMS = [
   {
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="App">
-      <InputForm onSaveItemData={handleItemData}/>
+      <NewItem onAddItem={handleItemData}/>
       <ListItems items={items}/>
     </div>
   );
