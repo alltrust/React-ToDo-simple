@@ -35,8 +35,8 @@ function InputForm(props) {
     };
     props.onSaveItemData(itemData)
 
-    setEnteredAge('');
-    setEnteredUsername('');
+    setEnteredAge(' ');
+    setEnteredUsername(' ');
 
     
 
@@ -47,11 +47,11 @@ function InputForm(props) {
         <form onSubmit={formSubmitHandler}>
           <div>
             <label>Username</label>
-            <input type="text" onChange={enteredUserChangeHandler}></input>
+            <input type="text" value={enteredUsername} onChange={enteredUserChangeHandler}></input>
           </div>
           <div>
             <label>Age (Years)</label>
-            <input type="number" onChange={enteredAgeHandler}></input>
+            <input type="number" value={enteredAge} onChange={enteredAgeHandler}></input>
           </div>
           <button type="submit">Add User</button>
         </form>

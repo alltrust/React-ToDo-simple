@@ -30,8 +30,6 @@ function App() {
     setItems((previousitems) =>{
       return (
         [item, ...previousitems])
-        
-        
     })
   };
 
