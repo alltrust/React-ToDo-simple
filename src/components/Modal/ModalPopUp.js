@@ -1,4 +1,7 @@
 import Card from "../UI/Card";
+import Button from "../UI/Button"
+
+
 import "./ModalPopUp.css";
 
 function ModalPopUp(props) {
@@ -12,7 +15,7 @@ function ModalPopUp(props) {
 
   return (
     <div className="modal-overlay" onClick={closeModal}>
-      <div className="modal" onClick={props =>props.stopPropagation()} >
+      <Card className="modal" onClick={props =>props.stopPropagation()} >
         <div className="modal-header" >
           <h2>Input Invalid</h2>
         </div>
@@ -21,8 +24,8 @@ function ModalPopUp(props) {
             ? "select proper number"
             : "do not leave username field empty"}
           </p>
-        <button onClick={closeModal}>Okay</button>
-      </div>
+        <Button onClick={closeModal}>Okay</Button>
+      </Card>
     </div>
   );
 }

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import ModalPopUp from "../Modal/ModalPopUp";
 
-import "./InputForm.css";
+import Card from "../UI/Card";
+import Button from "../UI/Button"
+
+import classes from "./InputForm.module.css";
 
 function InputForm(props) {
   const [enteredUsername, setEnteredUsername] = useState("");
@@ -46,22 +49,20 @@ function InputForm(props) {
 
   };
   return (
-    <div>
-      <div>
+      <Card className={classes.input}>
         <form onSubmit={formSubmitHandler}>
           <div>
-            <label>Username</label>
-            <input type="text" value={enteredUsername} onChange={enteredUserChangeHandler}></input>
+            <label htmlFor="username">Username</label>
+            <input id="username" type="text" value={enteredUsername} onChange={enteredUserChangeHandler}></input>
           </div>
           <div>
-            <label>Age (Years)</label>
-            <input type="number" value={enteredAge} onChange={enteredAgeHandler}></input>
+            <label htmlFor="age">Age (Years)</label>
+            <input id="age" type="number" value={enteredAge} onChange={enteredAgeHandler}></input>
           </div>
-          <button type="submit">Add User</button>
+          <Button type="submit">Add User</Button>
         </form>
-      </div>
       {showModal && <ModalPopUp closeModal={setShowModal} numIsValid={numIsValid}/>}
-    </div>
+      </Card>
   );
 }
 

@@ -1,10 +1,10 @@
 import Card from '../UI/Card'
-import './Item.css'
+import classes from './Item.module.css'
 
 
 const Item = (props) =>{
     return (
-        <Card className='item-container'>
+        <Card className={classes.item}>
             <h3>{props.username}</h3>
             <h3>{props.age}</h3>
         </Card>
