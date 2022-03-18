@@ -3,7 +3,6 @@ import ModalPopUp from "../Modal/ModalPopUp";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button"
-
 import classes from "./InputForm.module.css";
 
 function InputForm(props) {
@@ -28,8 +27,8 @@ function InputForm(props) {
       setShowModal(true);
       return
     }
-    let n = enteredAge.trim();
-    if (n > 100 || n < 0 || isNaN(n) || n.trim() === '') {
+    let n = enteredAge
+    if ( n < 0 || n.trim() === '') {
       setShowModal(true);
       setNumIsValid(false)
       return
